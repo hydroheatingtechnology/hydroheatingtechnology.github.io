@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이드로 히팅테크놀로지 (주) - 산업용 가열 시스템 전문기업</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #74b9ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f4f8" width="1200" height="600"/><circle fill="%23ddeef5" cx="200" cy="150" r="80"/><circle fill="%23c8e6f0" cx="800" cy="300" r="120"/><circle fill="%23b3dde8" cx="1000" cy="100" r="60"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #3498db;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Company Info */
+        .company-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .info-item h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #74b9ff;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-info {
+                padding: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">하이드로 히팅테크놀로지 (주)</a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">홈</a></li>
+                        <li><a href="#services">사업분야</a></li>
+                        <li><a href="#about">회사소개</a></li>
+                        <li><a href="#contact">연락처</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>혁신적인 식품 산업용 가열 시스템과 공정 설계 시스템</h1>
+            <p>Direct Steam Injection 기술과 공정 설계 소프트웨어 개발로 </p>
+            <p>식품 및 바이오 산업의 미래를 선도합니다</p>
+            <a href="#contact" class="cta-button">문의하기</a>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section id="services" class="section">
+                <h2>주요 사업분야</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🔥 Hydro-heater 시스템</h3>
+                        <p>미국 Hydro-thermal 회사의 Direct Steam Injection 시스템을 기반으로 한 고효율 가열 솔루션을 제공합니다. 에너지 효율성과 정확한 온도 제어로 산업 현장의 가열 공정을 혁신합니다.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🧬 식품 및 바이오 산업 응용</h3>
+                        <p>Hydro-heater 기술의 식품 가공 및 바이오 산업 응용 기술을 개발하고 제공합니다. 안전하고 효율적인 가열 공정으로 제품 품질 향상과 생산성 증대를 실현합니다.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>💻 공정설계 소프트웨어</h3>
+                        <p>산업 공정 설계를 위한 전문 소프트웨어를 개발하고 제공합니다. 복잡한 공정 설계를 간소화하고 최적화하여 고객의 생산성 향상을 지원합니다.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🔬 RDEC 측정 장비</h3>
+                        <p>미국 특허 보유 기술인 RDEC(Repeatable Dual Extrusion Cell)를 활용한 식품의 물리적 특성 측정 장비를 개발하고 판매합니다. 정확하고 신뢰할 수 있는 측정 결과를 제공합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="section">
+                <h2>회사 소개</h2>
+                <div class="company-info">
+                    <p style="font-size: 1.1rem; text-align: center; margin-bottom: 2rem; color: #555;">
+                        Hydro Heating Technology는 산업용 가열 시스템과 공정 기술 분야의 전문 기업입니다. 
+                        혁신적인 기술과 풍부한 경험을 바탕으로 고객에게 최적의 솔루션을 제공하고 있습니다.
+                    </p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4>👨‍💼 대표이사</h4>
+                            <p>윤 원병</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>📍 본사 주소</h4>
+                            <p>강원도 춘천시 강원대학길 1<br>
+                            농업생명과학대학 3호관 407호</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🎯 핵심 기술</h4>
+                            <p>Direct Steam Injection<br>
+                            공정 설계 소프트웨어<br>
+                            RDEC 측정 기술</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>🏭 주요 산업</h4>
+                            <p>식품 가공 산업<br>
+                            바이오 소재 산업<br>
+                            식품 및 바이오 소재 R&D</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>연락처</h4>
+                    <p>📧 이메일: info@hydroheatingtech.com</p>
+                    <p>📞 전화: 문의 예정</p>
+                    <p>📠 팩스: 문의 예정</p>
+                </div>
+                <div class="footer-section">
+                    <h4>주소</h4>
+                    <p>강원도 춘천시 강원대학길 1</p>
+                    <p>농업생명과학대학 3호관 407호</p>
+                    <p>우편번호: 24341</p>
+                </div>
+                <div class="footer-section">
+                    <h4>사업 분야</h4>
+                    <p>• Hydro-heater 시스템</p>
+                    <p>• 공정 설계 소프트웨어</p>
+                    <p>• RDEC 측정 장비</p>
+                </div>
+            </div>
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #34495e;">
+            <p>&copy; 2025 Hydro Heating Technology. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background opacity on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+            } else {
+                header.style.backgroundColor = 'transparent';
+            }
+        });
+
+        // Intersection Observer for animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
